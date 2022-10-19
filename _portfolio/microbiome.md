@@ -1,7 +1,7 @@
 ---
 title: "Microbiome"
 excerpt: "User Research, Mobile Application, Qualitative Interview, Computer Vision, ML <br/> <img src='images\stool-analysis.png' width="200" height="200">"
-collection: research
+collection: portfolio
 ---
 
 **UbiComp Lab, University of Washington**
