@@ -1,6 +1,6 @@
 ---
 title: "Microbiome"
-excerpt: "User Research, Mobile Application, Qualitative Interview, Computer Vision, ML<br/> <img src='/images/stool-analysis.png'>"
+excerpt: "User Research, Mobile Application, Qualitative Interview, Computer Vision, ML<br/> <img src='/images/Stool_1.png.png' width=50% height=50%>"
 collection: portfolio
 ---
 
@@ -14,8 +14,8 @@ IBD (Intestinal Bowel Disease) causes pain and lifestyle hindrances for more tha
 
 Additionally, participants expressed some surmountable personal and social discomfort with using stool-related apps.
 Based on these findings, specific suggestions for improvements of gastrointestinal management apps are suggested based on interview feedback from real patients experiencing gastrointestinal disease.
+<img src='/images/Stool_1.png.png'>
 
-![](http://boliu97.github.io/images/Stool_1.png.png)
 
 
 
