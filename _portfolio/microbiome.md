@@ -1,6 +1,6 @@
 ---
 title: "Microbiome"
-excerpt: "User Research, Mobile Application, Qualitative Interview, Computer Vision, ML<br/> <img src='/images/Stool_1.png.png' width=50% height=50%>"
+excerpt: "User Research, Mobile Application, Qualitative Interview, Computer Vision, ML<br/> <img src='/images/Stool_1.png.png' width=100px height=100px>"
 collection: portfolio
 ---
 
