@@ -19,21 +19,20 @@ People associate the hospital with things they deem stressful and scary. **When 
 
 People associate the hospital with things they deem stressful and scary. When they are in healthcare settings, patients have emotional reactions like anxiety, aggression, and anger mainly because they lack control of their environment. These emotional responses can increase not only pain sensitivity but also delay important medical treatment, lower efficiency, and also undermine patients’ willingness to continue their healthcare treatment.
 
-<video>
+<video width="80%" height=auto controls>
   <source type="video/mp4" src="https://boliu97.github.io/files/Video/Lullaland_demo.mp4">
 </video>
 
 ## Interview & Suvery
 
 ### We interviewed 12 participants, including 6 adults and 6 parents, each for 30 minutes.
-:We asked them to walk us through the whole experience they had at clinic, and asked their mood changes.
+We asked them to walk us through the whole experience they had at clinic, and asked their mood changes.
 
 ### We also conducted a survey to further prove our insights. We sent out questionnaires online and got 40 results.
-:
 #### Q: Feelings about Hospital 
-:Q: Feelings about Hospital 
+Q: Feelings about Hospital 
 #### Q: How to get relaxed
-:70% of participants reported that they have tried meditation to help get relaxed. 85% of participants said they will need to draw their attention from the anxiety.
+70% of participants reported that they have tried meditation to help get relaxed. 85% of participants said they will need to draw their attention from the anxiety.
 
 Hanrwa
 Embroidered Speaker            |      Prototype
