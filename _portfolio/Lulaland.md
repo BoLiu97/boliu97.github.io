@@ -36,6 +36,7 @@ Q: Feelings about Hospital
 70% of participants reported that they have tried meditation to help get relaxed. 85% of participants said they will need to draw their attention from the anxiety.
 
 ## Hardware
+
 Hardware Design           |      Circuit Design
 :-------------------------:|:-------------------------:
 ![](http://boliu97.github.io/image/Lula_HardSch.webp)  |  ![](http://boliu97.github.io/images/Lula_3D.webp)
@@ -43,8 +44,5 @@ Hardware Design           |      Circuit Design
 Can we use several speakers embroidered on clothes to track body movement? In this project, I experimented with many materials for making embroidered speakers (threads, clothing materials, and coil size). Anandghan and I also designed several circuits for speakers and microphones. Since we are still working on the project, I cannot show much detail on the website. Chat with me about the project!
 
 ## Prototype
-
-|![](http://boliu97.github.io/images/Lula_prototype.png)|
-|:--:| 
-| *Aroma Pod* |
+<img src='/images/Lula_prototype.png'>
 
