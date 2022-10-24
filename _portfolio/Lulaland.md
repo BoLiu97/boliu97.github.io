@@ -8,7 +8,8 @@ collection: portfolio
 
 People: Bo Liu(first author), Steve Wang, Yuqing Zhang, John Raiti
 
-**Updates**: This paper is preparing to submit to CHI as Late-Breaking Work
+**Updates**: This research is preparing to submit to CHI as Late-Breaking Work
+
 ## My Work: 
 Hardware: Circuit Design, Prototype Iteration
 
@@ -34,15 +35,16 @@ Q: Feelings about Hospital
 #### Q: How to get relaxed
 70% of participants reported that they have tried meditation to help get relaxed. 85% of participants said they will need to draw their attention from the anxiety.
 
-Hanrwa
-Embroidered Speaker            |      Prototype
+## Hardware
+Hardware Design           |      Circuit Design
 :-------------------------:|:-------------------------:
-![](http://boliu97.github.io/images/Speaker_1.jpg)  |  ![](http://boliu97.github.io/images/Speaker_2.jpg)
+![](http://boliu97.github.io/image/Lula_HardSch.webp)  |  ![](http://boliu97.github.io/images/Lula_3D.webp)
 
 Can we use several speakers embroidered on clothes to track body movement? In this project, I experimented with many materials for making embroidered speakers (threads, clothing materials, and coil size). Anandghan and I also designed several circuits for speakers and microphones. Since we are still working on the project, I cannot show much detail on the website. Chat with me about the project!
 
+## Prototype
 
-|![](http://boliu97.github.io/images/SoundShirt-demo.gif)|
+|![](http://boliu97.github.io/images/Lula_prototype.png)|
 |:--:| 
-| *First prototype - Machine learning predicting result* |
+| *Aroma Pod* |
 
