@@ -1,6 +1,6 @@
 ---
 title: "VR:Lullaland"
-excerpt: "VR , Fabrication, Circuit Design <br/> <img src='/imagesimages/Lula_front.png'>"
+excerpt: "VR , Fabrication, Circuit Design <br/> <img src='/images/Lula_front.png'>"
 collection: portfolio
 ---
 
@@ -10,11 +10,9 @@ People: Bo Liu(first author), Steve Wang, Yuqing Zhang, John Raiti
 
 **Updates**: This paper is preparing to submit to CHI as Late-Breaking Work
 ## My Work: 
-Hardware 
-: Circuit Design, Prototype Iteration
+Hardware: Circuit Design, Prototype Iteration
 
-Software 
-: VR Development Full Stack
+Software: VR Development Full Stack
 
 ## Lullaland
 People associate the hospital with things they deem stressful and scary. **When they are in healthcare settings, patients have emotional reactions like anxiety, aggression, and anger mainly because they lack control of their environment.** These emotional responses can increase not only pain sensitivity but also delay important medical treatment, lower efficiency, and also undermine patients’ willingness to continue their healthcare treatment.
@@ -22,7 +20,7 @@ People associate the hospital with things they deem stressful and scary. **When 
 People associate the hospital with things they deem stressful and scary. When they are in healthcare settings, patients have emotional reactions like anxiety, aggression, and anger mainly because they lack control of their environment. These emotional responses can increase not only pain sensitivity but also delay important medical treatment, lower efficiency, and also undermine patients’ willingness to continue their healthcare treatment.
 
 <video>
-  <source type="video/mp4" src="https://boliu97.github.io/files/Video/Lullaland_demo.mp4  ">
+  <source type="video/mp4" src="https://boliu97.github.io/files/Video/Lullaland_demo.mp4">
 </video>
 
 ## Interview & Suvery
@@ -37,6 +35,7 @@ People associate the hospital with things they deem stressful and scary. When th
 #### Q: How to get relaxed
 :70% of participants reported that they have tried meditation to help get relaxed. 85% of participants said they will need to draw their attention from the anxiety.
 
+Hanrwa
 Embroidered Speaker            |      Prototype
 :-------------------------:|:-------------------------:
 ![](http://boliu97.github.io/images/Speaker_1.jpg)  |  ![](http://boliu97.github.io/images/Speaker_2.jpg)
