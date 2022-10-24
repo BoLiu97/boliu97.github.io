@@ -6,7 +6,7 @@ collection: portfolio
 
 **UbiComp Lab, University of Washington**
 
-People: Bo Liu(First author), Jason Hoffman, Chloe Sow, Yuqing Zhang, Shwetak Patel
+People: Bo Liu(first author), Jason Hoffman, Chloe Sow, Yuqing Zhang, Shwetak Patel
 
 **Updates**: Paper submitted to CHI 2023 for review
 
