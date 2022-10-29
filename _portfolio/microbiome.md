@@ -18,9 +18,9 @@ Based on these findings, specific suggestions for improvements of gastrointestin
 This study bridges a gap between IBD patients with self-monitoring disease needs and apps designed to help them. We
 find that current IBD apps should have more user-centered designs after conducting 16 semi-structured interviews
 with current IBD patients. We find key needs participants request of IBD self-monitoring apps: 
-(1) providing personalized feedback based on users' input
-(2) designing customizable features
-(3) explaining personal data usage
-(4) enabling engagement and motivation 
+1.  providing personalized feedback based on users' input
+2.  designing customizable features
+3.  explaining personal data usage
+4.  enabling engagement and motivation 
 We also find that participants have concerns about spending too much time on AI-based self-monitoring apps with questionable usefulness in their disease management. Finally, they expressed concerns about the inconvenience or embarrassment of using the app in public places, which needs more design consideration in future IBD app development.
 <img src='/images/Stool_1.png'>
