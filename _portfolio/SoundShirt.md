@@ -1,6 +1,7 @@
 ---
 title: "Sound Shirt"
 excerpt: "eTextile, Movement tracking, circuit design, Machine Learning <br/> <img src='/images/SoundShirtFront.png'>"
+reading_order: 0
 collection: portfolio
 ---
 
