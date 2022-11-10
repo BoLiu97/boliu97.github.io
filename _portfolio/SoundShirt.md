@@ -10,7 +10,9 @@ collection: portfolio
 People: Anandghan waghmare, Bo Liu, Shwetak Patel 
 
 **SoundShirt**
-Can we use several speakers embroidered on clothes to track body movement?
+Can we use several speakers to track body movement?
+SoundShirt is an eTextile technology that can perform continuous body tracking. We embroidered a set of speakers on regular clothing, using standard thread and thin copper wire, each of which emits a particular pattern of sound that a typical smartwatch can capture. By analyzing the captured sound data, the body posture can be predicted. SoundShirt can enable precise activity tracking, which can be used, for example, in health applications.
+
 The current body movement tracking techniques usually includes smartwatch, image processing. However, these are either not accurate or not accessible to use when walking on the street. 
 Why we need this
 What problem it solves
