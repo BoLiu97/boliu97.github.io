@@ -1,8 +1,8 @@
 ---
 title: "Smart Recorder"
 excerpt: "Android Development, User Research, Computer Vision, Accessibility <br/> <img src='/images/SmartRecorder_Front.png'>"
-reading_order: 2
 collection: portfolio
+
 ---
 
 **Pervasive HCI Lab, Tsinghua University (THU)**

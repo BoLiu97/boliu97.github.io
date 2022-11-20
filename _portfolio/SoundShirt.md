@@ -1,8 +1,11 @@
 ---
-reading_order: 0
 title: "Sound Shirt"
 excerpt: "eTextile, Movement tracking, circuit design, Machine Learning <br/> <img src='/images/SoundShirtFront.png'>"
+header: 
+    image: /images/SoundShirtFront.png
+    teaser: /images/SoundShirtFront.png
 collection: portfolio
+
 ---
 
 **UbiComp Lab, University of Washington**
