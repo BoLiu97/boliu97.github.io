@@ -1,7 +1,7 @@
 ---
 layout: collection
 title: "Research"
-permalink: /research/
+permalink: /portfolio/
 collection: portfolio
 entries_layout: grid
 classes: wide
