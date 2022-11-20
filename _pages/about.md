@@ -8,10 +8,19 @@ redirect_from:
   - /about.html
 ---
 
-**Update**: I am looking for a research group to join as a PhD student this year! I have some updates about my recent soundshirt and tactile graphic project, please contact me to know more!
+
 ------
-Hi, I am a master student studying [Technology Tnnovation](https://gixnetwork.org/) at the University of Washington. I am also conducting research at [Ubicomp Lab](https://ubicomplab.cs.washington.edu/) and [Make4All](https://make4all.org/) advised by Shwetak Patel and Jennifer Mankoff, respectively. 
+Hi, I am a master student studying [Technology Innovation](https://gixnetwork.org/) at the University of Washington. I am also conducting research at [Ubicomp Lab](https://ubicomplab.cs.washington.edu/) and [Make4All](https://make4all.org/) advised by Shwetak Patel and Jennifer Mankoff, respectively. 
 
 My research has been focused on wearable devices, user interface design, and healthcare. I am passionate about e-Textile, AR/VR, and sensing to make a positive impact on people's lives. 
 
 Previously, I worked for one year as a software engineer for chip design verification at Synopsys. 
+------
+## News & Updates
++ This year, I am looking for a research group to join as a Ph.D. student! I have some updates about my recent SoundShirt and tactile graphic project. Please get in touch with me to know more!
++ Nov 2022, I present my work [SoundShirt](https://boliu97.github.io/portfolio/SoundShirt/) at [UW 2022 Annual Research Showcase](https://www.cs.washington.edu/industrial_affiliates/meetings/2022) poster session.
++ Nov 2022, I attended UIST 2022.
++ Nov 2022, [Smart Recorder](https://boliu97.github.io/portfolio/SmartRecorder/) was submitted to IUI2023.
++ Sep 2022, I submitted [Microbiome](https://boliu97.github.io/portfolio/microbiome/) to CHI2023 at the first author.
+
+

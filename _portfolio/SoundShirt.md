@@ -6,13 +6,27 @@ header:
     teaser: SoundShirtFront.png
 collection: portfolio
 
+sidebar:
+  - title: "People"
+    image: 
+    image_alt: "logo"
+    text: "Anandghan Waghmare, Bo Liu, Shwetak Patel "
+  - title: "Location"
+    text: "UbiComp Lab, University of Washington"
 ---
 
-**UbiComp Lab, University of Washington**
+<!-- **UbiComp Lab, University of Washington**
+People: Anandghan waghmare, Bo Liu, Shwetak Patel  -->
 
-People: Anandghan waghmare, Bo Liu, Shwetak Patel 
+SoundShirt is an etextile technology that can perform continuous body tracking
 
-**SoundShirt**
+## Notable Points
++ Build proof-of-concept prototype 
++ Collected ground-truth data for Machine Learning
++ Fabricated speakers using a computerized embroidery machine
++ Tested numerous embroidered speakers to evaluate the optimal speaker design
++ Designed a custom speaker driver to drive multiple speakers simultaneously with separated audio output  
+
 Can we use several speakers to track body movement?
 SoundShirt is an eTextile technology that can perform continuous body tracking. We embroidered a set of speakers on regular clothing, using standard thread and thin copper wire, each of which emits a particular pattern of sound that a typical smartwatch can capture. By analyzing the captured sound data, the body posture can be predicted. SoundShirt can enable precise activity tracking, which can be used, for example, in health applications.
 
