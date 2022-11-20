@@ -1,6 +1,9 @@
 ---
 title: "Lullaland"
-excerpt: "Virtual Reality , Fabrication, Circuit Design, Healthcare <br/> <img src='/images/Lula_front.png'>"
+excerpt: "Virtual Reality , Fabrication, Circuit Design, Healthcare"
+header: 
+    image: /images/Lula_front.png
+    teaser: /images/Lula_front.png
 collection: portfolio
 
 ---

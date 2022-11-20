@@ -1,6 +1,6 @@
 ---
 title: "Sound Shirt"
-excerpt: "eTextile, Movement tracking, circuit design, Machine Learning <br/> <img src='/images/SoundShirtFront.png'>"
+excerpt: "eTextile, Movement tracking, circuit design, Machine Learning"
 header: 
     image: /images/SoundShirtFront.png
     teaser: /images/SoundShirtFront.png
