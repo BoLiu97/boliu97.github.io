@@ -2,8 +2,8 @@
 title: "Smart Recorder"
 excerpt: "Android Development, User Research, Computer Vision, Accessibility"
 header: 
-    image: /images/SmartRecorder_Front.png
-    teaser: /images/SmartRecorder_Front.png
+    image: SmartRecorder_Front.png
+    teaser: SmartRecorder_Front.png
 collection: portfolio
 
 ---

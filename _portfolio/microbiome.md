@@ -2,8 +2,8 @@
 title: "Microbiome"
 excerpt: "User Research, Mobile Application, Qualitative Interview, Computer Vision, ML"
 header: 
-    image: /images/Stool_front.png
-    teaser: /images/Stool_front.png
+    image: Stool_front.png
+    teaser: Stool_front.png
 collection: portfolio
 
 ---
