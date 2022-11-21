@@ -15,6 +15,7 @@ Hi, I am a master student studying [Technology Innovation](https://gixnetwork.or
 My research has been focused on wearable devices, user interface design, and healthcare. I am passionate about e-Textile, AR/VR, and sensing to make a positive impact on people's lives. 
 
 Previously, I worked for one year as a software engineer for chip design verification at Synopsys. 
+
 ------
 ## News & Updates
 + This year, I am looking for a research group to join as a Ph.D. student! I have some updates about my recent SoundShirt and tactile graphic project. Please get in touch with me to know more!

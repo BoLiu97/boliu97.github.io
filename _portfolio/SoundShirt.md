@@ -15,8 +15,6 @@ sidebar:
     text: "UbiComp Lab, University of Washington"
 ---
 
-<!-- **UbiComp Lab, University of Washington**
-People: Anandghan waghmare, Bo Liu, Shwetak Patel  -->
 
 SoundShirt is an etextile technology that can perform continuous body tracking
 

@@ -16,6 +16,8 @@ sidebar:
 
 ---
 
+This project researched people's private and uncomfortable experiences while using self-monitoring phone apps for digestive disorders(IBD, IBS)
+
 ## Notable Points
 
 + Designed mock-up UI and interview questions
