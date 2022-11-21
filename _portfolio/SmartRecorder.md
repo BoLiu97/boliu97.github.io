@@ -6,13 +6,21 @@ header:
     teaser: SmartRecorder_Front.png
 collection: portfolio
 
+sidebar:
+  - title: "People"
+    image: 
+    image_alt: "logo"
+    text: "XiaoZhu Hu, Yanwen Huang, Bo Liu, Chun Yu"
+  - title: "Location"
+    text: "Pervasive HCI Lab, Tsinghua University (THU)"
+  - title: "Responsibilities"
+    text: "Mobile App Development, User Interface Design"
+
 ---
 
-**Pervasive HCI Lab, Tsinghua University (THU)**
-
-People: XiaoZhu Hu, Yanwen Huang, Bo Liu(third author), Chun Yu
 
 **Updates**: Paper submitted to IUI 2023 for review
+
 
 SmartRecorder is an app tool that facilitates people, without video editing skills, creating video tutorials for smartphone interaction tasks. 
 

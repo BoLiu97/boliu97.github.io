@@ -6,18 +6,21 @@ header:
     teaser: Lula_front.png
 collection: portfolio
 
+sidebar:
+  - title: "People"
+    image: 
+    image_alt: "logo"
+    text: "Bo Liu(first author), Steve Wang, Yuqing Zhang, John Raiti"
+  - title: "Location"
+    text: "University of Washington"
+  - title: "Responsibilities"
+    text: "Circuit Design, Prototype Iteration, VR Development Full Stack"
+
 ---
 
-**Global Innovation Exchange, University of Washington**
-
-People: Bo Liu(first author), Steve Wang, Yuqing Zhang, John Raiti
 
 **Updates**: This research is preparing to submit to CHI as Late-Breaking Work
 
-## My Work: 
-Hardware: Circuit Design, Prototype Iteration
-
-Software: VR Development Full Stack
 
 ## Lullaland
 People associate the hospital with things they deem stressful and scary. **When they are in healthcare settings, patients have emotional reactions like anxiety, aggression, and anger mainly because they lack control of their environment.** These emotional responses can increase not only pain sensitivity but also delay important medical treatment, lower efficiency, and also undermine patients’ willingness to continue their healthcare treatment.

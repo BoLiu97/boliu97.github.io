@@ -21,6 +21,6 @@ Previously, I worked for one year as a software engineer for chip design verific
 + Nov 2022, I present my work [SoundShirt](https://boliu97.github.io/portfolio/SoundShirt/) at [UW 2022 Annual Research Showcase](https://www.cs.washington.edu/industrial_affiliates/meetings/2022) poster session.
 + Nov 2022, I attended UIST 2022.
 + Nov 2022, [Smart Recorder](https://boliu97.github.io/portfolio/SmartRecorder/) was submitted to IUI2023.
-+ Sep 2022, I submitted [Microbiome](https://boliu97.github.io/portfolio/microbiome/) to CHI2023 at the first author.
++ Sep 2022, I submitted [Microbiome](https://boliu97.github.io/portfolio/microbiome/) to CHI2023 as the first author.
 
 

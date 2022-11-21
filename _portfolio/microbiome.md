@@ -6,11 +6,22 @@ header:
     teaser: Stool_front.png
 collection: portfolio
 
+sidebar:
+  - title: "People"
+    image: 
+    image_alt: "logo"
+    text: "Bo Liu(first author), Jason Hoffman, Chloe Sow, Yuqing Zhang, Shwetak Patel"
+  - title: "Location"
+    text: "UbiComp Lab, University of Washington"
+
 ---
 
-**UbiComp Lab, University of Washington**
+## Notable Points
 
-People: Bo Liu(first author), Jason Hoffman, Chloe Sow, Yuqing Zhang, Shwetak Patel
++ Designed mock-up UI and interview questions
++ Pilot studies with experienced User Experience researchers 
++ Conducted qualitative interviews with 20 IBD patients 
++ Used thematic analysis to summarize the finding 
 
 **Updates**: Paper submitted to CHI 2023 for review
 
