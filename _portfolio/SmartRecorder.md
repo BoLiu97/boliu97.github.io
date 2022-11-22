@@ -1,6 +1,7 @@
 ---
 title: "Smart Recorder"
-excerpt: "Android Development, User Research, Computer Vision, Accessibility"
+excerpt: "SmartRecorder is an app tool that facilitates people, without video editing skills, creating video tutorials for smartphone interaction tasks. 
+Android Development, User Research, Computer Vision, Accessibility"
 header: 
     image: SmartRecorder_Front.png
     teaser: SmartRecorder_Front.png
@@ -18,7 +19,6 @@ sidebar:
 
 ---
 
-SmartRecorder is an app tool that facilitates people, without video editing skills, creating video tutorials for smartphone interaction tasks. 
 
 **Updates**: Paper submitted to IUI 2023 for review
 

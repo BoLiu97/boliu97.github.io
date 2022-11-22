@@ -1,6 +1,7 @@
 ---
 title: "Microbiome"
-excerpt: "User Research, Mobile Application, Qualitative Interview, Computer Vision, ML"
+excerpt: "This project researched people's private and uncomfortable experiences while using self-monitoring phone apps for digestive disorders.
+      User Research, Mobile Application, Qualitative Interview, Computer Vision, ML"
 header: 
     image: Stool_front.png
     teaser: Stool_front.png
@@ -16,7 +17,7 @@ sidebar:
 
 ---
 
-This project researched people's private and uncomfortable experiences while using self-monitoring phone apps for digestive disorders(IBD, IBS)
+
 
 ## Notable Points
 

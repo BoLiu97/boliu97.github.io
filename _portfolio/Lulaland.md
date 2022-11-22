@@ -1,6 +1,7 @@
 ---
 title: "Lullaland"
-excerpt: "Virtual Reality , Fabrication, Circuit Design, Healthcare"
+excerpt: "Lullaland is a visual-olfactory VR interaction system with a custom multisensory device for relaxing.
+        Virtual Reality , Fabrication, Circuit Design, Healthcare"
 header: 
     image: Lula_front.png
     teaser: Lula_front.png
@@ -18,7 +19,6 @@ sidebar:
 
 ---
 
-Lullaland is a visual-olfactory VR interaction system with a custom multisensory device for relaxing.
 
 **Updates**: This research is preparing to submit to CHI as Late-Breaking Work
 

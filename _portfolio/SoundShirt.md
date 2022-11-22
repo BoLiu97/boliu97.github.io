@@ -1,6 +1,8 @@
 ---
 title: "Sound Shirt"
-excerpt: "eTextile, Movement tracking, circuit design, Machine Learning"
+excerpt: "SoundShirt is an etextile technology that can perform continuous body tracking.
+
+          e-Textile, Movement tracking, circuit design, Machine Learning"
 header: 
     image: SoundShirtFront.png
     teaser: SoundShirtFront.png
@@ -16,7 +18,7 @@ sidebar:
 ---
 
 
-SoundShirt is an etextile technology that can perform continuous body tracking
+
 
 ## Notable Points
 + Build proof-of-concept prototype 
