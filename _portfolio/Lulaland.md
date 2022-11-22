@@ -3,8 +3,8 @@ title: "Lullaland"
 excerpt: "Lullaland is a visual-olfactory VR interaction system with a custom multisensory device for relaxing.
         Virtual Reality , Fabrication, Circuit Design, Healthcare"
 header: 
-    image: Lula_teaser.png
-    teaser: Lula_front.png
+    image: Lula_front.png
+    teaser: Lula_teaser.png
 collection: portfolio
 
 sidebar:
