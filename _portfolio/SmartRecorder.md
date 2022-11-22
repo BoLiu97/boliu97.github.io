@@ -4,7 +4,7 @@ excerpt: "SmartRecorder is an app tool that facilitates people, without video ed
 Android Development, User Research, Computer Vision, Accessibility"
 header: 
     image: SmartRecorder_Front.png
-    teaser: SmartRecorder_Front.png
+    teaser: SmartRecorder_teaser.png
 collection: portfolio
 
 sidebar:
