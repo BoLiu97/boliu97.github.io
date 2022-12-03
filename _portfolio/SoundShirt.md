@@ -12,7 +12,7 @@ sidebar:
   - title: "People"
     image: 
     image_alt: "logo"
-    text: "Anandghan Waghmare, Bo Liu, Shwetak Patel "github
+    text: "Anandghan Waghmare, Bo Liu, Shwetak Patel "
   - title: "Location"
     text: "UbiComp Lab, University of Washington"
 ---
