@@ -20,7 +20,7 @@ sidebar:
 ---
 
 
-**Updates**: Paper submitted to IUI 2023 for review
+**Updates**: Paper has been accepted by IUI 2023 as a full paper
 
 
 
