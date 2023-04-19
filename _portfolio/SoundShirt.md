@@ -49,4 +49,4 @@ Embroidered Speaker            |      Prototype
 | *First prototype - Machine learning predicting result* |
 
 
-[Slides for the current progress](https://docs.google.com/presentation/d/1rweogAS7GrC8H8r81fx7idbzwOp7QOj6HzcJvjgox1U/edit?usp=sharing)
+<!-- [Slides for the current progress](https://docs.google.com/presentation/d/1rweogAS7GrC8H8r81fx7idbzwOp7QOj6HzcJvjgox1U/edit?usp=sharing) -->
