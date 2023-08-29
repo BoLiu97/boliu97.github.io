@@ -7,4 +7,4 @@ redirect_from:
   - /resume
 ---
 
-<embed src="https://boliu97.github.io/files/BoLiu_CV.pdf" type="application/pdf" />
+<embed src="https://boliu97.github.io/files/Bo-2023Fall.pdf" type="application/pdf" />
