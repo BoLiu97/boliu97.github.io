@@ -20,6 +20,7 @@ Previously, I worked for one year as a software engineer for chip design verific
 
 ------
 ## News & Updates
++ Nov 2024, [Y-AR](https://matteroftechlab.org/projects/2024-shuo-y-ar/yar.html) is on Arxiv
 + Apr 2023, I will be joining Cornell Tech this fall as a PhD student.
 + Feb 2023, [Lullaland](https://boliu97.github.io/portfolio/Lulaland/) has been accepted by CHI 2023 as a late breaking work.
 + Jan 2023, [Smart Recorder](https://boliu97.github.io/portfolio/SmartRecorder/) has been accepted by IUI2023 as a full paper.
