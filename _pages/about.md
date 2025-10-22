@@ -18,7 +18,7 @@ My research has been focused on wearable devices, sensing, and healthcare. I am 
 
 ------
 ## News & Updates
-+ Oct 2025, [Y-AR](https://arxiv.org/abs/2410.23540) accepted by SCF 25, [Beyond Beautiful] accepted by ASSETS 25. 
++ Oct 2025, [Y-AR](https://arxiv.org/abs/2410.23540) accepted by SCF 25, [Beyond Beautiful](https://dl.acm.org/doi/10.1145/3663547.3746336) accepted by ASSETS 25. 
 + Sep 2025, [Assembly Stethoscope](https://dl.acm.org/doi/abs/10.1145/3737901.3768368) has been accepted by MobiCom as a workshop paper. 
 + Aug 2025, [Co-Play](https://ieeexplore.ieee.org/abstract/document/11134003) accepted by ICCCN 25, [FlowRing](https://dl.acm.org/doi/full/10.1145/3743706) accepted IUI 25.
 + Apr 2023, I will be joining Cornell Tech as a PhD student.
