@@ -86,7 +86,7 @@ author:
   location         : 
   employer         :
   pubmed           : 
-  googlescholar    : 
+  googlescholar    : "https://scholar.google.com/citations?user=3k5VL7gAAAAJ&hl=en" 
   email            : "bl685@cornell.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
