@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chair Audio Player 1"
+title: "Chair Audio Player 2"
 permalink: /chair-audio/
 ---
 
@@ -16,11 +16,12 @@ permalink: /chair-audio/
 <h2>Script Player</h2>
 
 <div class="row">
-    <button id="prev" type="button">Prev</button>
-    <button id="play" type="button">Play</button>
-    <button id="next" type="button">Next</button>
-    <button id="stop" type="button">Stop</button>
-    <button id="test" type="button">Test Voice</button>
+  <button id="test" type="button">Test Voice</button>
+  <button id="prev" type="button">Prev</button>
+  <button id="play" type="button">Play</button>
+  <button id="next" type="button">Next</button>
+  <button id="stop" type="button">Stop</button>
+
   <label>Speed: <span id="rateLabel">1.0</span></label>
   <input id="rate" type="range" min="0.6" max="1.6" value="1.0" step="0.05" />
 </div>
@@ -41,6 +42,7 @@ permalink: /chair-audio/
   ];
 
   let idx = 0;
+  let playing = false;
   const synth = window.speechSynthesis;
   let voices = [];
 
@@ -53,89 +55,107 @@ permalink: /chair-audio/
 
   function ensureSpeechSupported() {
     if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
-      setStatus("This browser doesn't support text-to-speech. Try Chrome, Edge, or Safari.");
+      setStatus("Text-to-speech isn't supported in this browser. Try Chrome, Edge, or Safari.");
       return false;
     }
     return true;
   }
 
   function loadVoices() {
-    try { voices = synth.getVoices() || []; } catch(e) { voices = []; }
+    try { voices = synth.getVoices() || []; } catch (e) { voices = []; }
   }
   loadVoices();
-  if ("onvoiceschanged" in synth) synth.onvoiceschanged = () => loadVoices();
+  if ("onvoiceschanged" in synth) synth.onvoiceschanged = loadVoices;
 
   function highlight(i) {
-    [...document.querySelectorAll(".sent")].forEach((b, k) => b.classList.toggle("active", k === i));
+    [...document.querySelectorAll(".sent")].forEach((b, k) => {
+      b.classList.toggle("active", k === i);
+    });
   }
 
   function stopAll() {
-    try { synth.cancel(); } catch(e) {}
+    playing = false;
+    try { synth.cancel(); } catch (e) {}
     setStatus("Stopped.");
   }
 
-  // Speak one sentence reliably
-  function speakOne(i) {
-    if (!ensureSpeechSupported()) return;
-
-    // Cancel + resume fixes “no sound” on Chrome/Safari sometimes
-    try { synth.cancel(); } catch(e) {}
-    try { synth.resume(); } catch(e) {}
-
-    const u = new SpeechSynthesisUtterance(sentences[i]);
+  function makeUtterance(text, i) {
+    const u = new SpeechSynthesisUtterance(text);
     u.rate = parseFloat(rateSlider.value);
 
     loadVoices();
     if (voices.length) u.voice = voices[0];
 
-    u.onstart = () => { idx = i; highlight(i); setStatus("Speaking: " + (i+1)); };
-    u.onerror = (e) => setStatus("TTS error: " + (e.error || "unknown"));
-
-    // Tiny delay avoids “cancel then speak does nothing”
-    setTimeout(() => synth.speak(u), 60);
+    u.onstart = () => { idx = i; highlight(i); setStatus("Speaking " + (i + 1) + "/" + sentences.length); };
+    u.onerror = (e) => { playing = false; setStatus("TTS error: " + (e.error || "unknown")); };
+    return u;
   }
 
-  // Play sequence using onend (more reliable than queueing a loop)
-  let playing = false;
+  // Speak exactly one sentence
+  function speakOne(i) {
+    if (!ensureSpeechSupported()) return;
+    playing = false;
+
+    try { synth.cancel(); } catch (e) {}
+    try { synth.resume(); } catch (e) {}
+
+    const u = makeUtterance(sentences[i], i);
+
+    // Small delay prevents "cancel then speak does nothing" on some Chrome setups
+    setTimeout(() => {
+      try { synth.resume(); } catch (e) {}
+      synth.speak(u);
+    }, 60);
+  }
+
+  // Play from idx to end using onend recursion (reliable)
   function playFrom(i) {
     if (!ensureSpeechSupported()) return;
     playing = true;
 
-    const u = new SpeechSynthesisUtterance(sentences[i]);
-    u.rate = parseFloat(rateSlider.value);
+    try { synth.cancel(); } catch (e) {}
+    try { synth.resume(); } catch (e) {}
 
-    loadVoices();
-    if (voices.length) u.voice = voices[0];
-
-    u.onstart = () => { idx = i; highlight(i); setStatus("Playing: " + (i+1) + "/" + sentences.length); };
-    u.onerror = (e) => { playing = false; setStatus("TTS error: " + (e.error || "unknown")); };
+    const u = makeUtterance(sentences[i], i);
     u.onend = () => {
       if (!playing) return;
       if (i < sentences.length - 1) playFrom(i + 1);
       else { playing = false; setStatus("Done."); }
     };
 
-    try { synth.cancel(); } catch(e) {}
-    try { synth.resume(); } catch(e) {}
-    setTimeout(() => synth.speak(u), 60);
+    setTimeout(() => {
+      try { synth.resume(); } catch (e) {}
+      synth.speak(u);
+    }, 60);
   }
 
   // Build sentence buttons
   sentences.forEach((s, i) => {
     const b = document.createElement("button");
     b.className = "sent";
+    b.type = "button"; // IMPORTANT: prevents form-submit behavior in Jekyll themes
     b.textContent = (i + 1) + ". " + s;
-    b.onclick = () => { playing = false; speakOne(i); };
+    b.onclick = (e) => { e.preventDefault(); speakOne(i); };
     list.appendChild(b);
   });
-  highlight(idx);
-  setStatus("Ready. Click “Test Voice” first if your browser is picky.");
 
-  document.getElementById("test").onclick = () => { playing = false; speakOne(idx); };
-  document.getElementById("play").onclick = () => playFrom(idx);
-  document.getElementById("prev").onclick = () => { playing = false; idx = Math.max(0, idx - 1); speakOne(idx); };
-  document.getElementById("next").onclick = () => { playing = false; idx = Math.min(sentences.length - 1, idx + 1); speakOne(idx); };
-  document.getElementById("stop").onclick = () => { playing = false; stopAll(); };
+  highlight(idx);
+  setStatus("Ready. Click Test Voice to verify audio.");
+
+  // Hook up controls (prevent default to avoid theme form behavior)
+  document.getElementById("test").onclick = (e) => { e.preventDefault(); speakOne(idx); };
+  document.getElementById("play").onclick = (e) => { e.preventDefault(); playFrom(idx); };
+  document.getElementById("prev").onclick = (e) => { e.preventDefault(); idx = Math.max(0, idx - 1); speakOne(idx); };
+  document.getElementById("next").onclick = (e) => { e.preventDefault(); idx = Math.min(sentences.length - 1, idx + 1); speakOne(idx); };
+  document.getElementById("stop").onclick = (e) => { e.preventDefault(); stopAll(); };
 
   rateSlider.oninput = () => { rateLabel.textContent = rateSlider.value; };
+
+  // Optional keyboard shortcuts
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") { e.preventDefault(); playFrom(idx); }
+    if (e.code === "ArrowLeft") { e.preventDefault(); idx = Math.max(0, idx - 1); speakOne(idx); }
+    if (e.code === "ArrowRight") { e.preventDefault(); idx = Math.min(sentences.length - 1, idx + 1); speakOne(idx); }
+    if (e.code === "Escape") { e.preventDefault(); stopAll(); }
+  });
 </script>
