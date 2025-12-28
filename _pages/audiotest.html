@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chair Script Player</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 18px; line-height: 1.35; }
+    .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom: 12px; }
+    button { padding: 10px 12px; font-size: 16px; }
+    .sent { width: 100%; text-align: left; margin: 6px 0; }
+    .active { outline: 3px solid #000; }
+    input[type="range"] { width: 220px; }
+  </style>
+</head>
+<body>
+  <h2>Script Player</h2>
+
+  <div class="row">
+    <button id="prev">Prev</button>
+    <button id="play">Play</button>
+    <button id="next">Next</button>
+    <button id="stop">Stop</button>
+    <label>Speed: <span id="rateLabel">1.0</span></label>
+    <input id="rate" type="range" min="0.6" max="1.6" value="1.0" step="0.05" />
+  </div>
+
+  <div id="list"></div>
+
+  <script>
+    const sentences = [
+      "You are building a dining chair without armrests.",
+      "The build starts with two identical side frames.",
+      "Each side frame has a tall leg and a short leg, and two fixed rails between them.",
+      "Now connect the two side frames with three cross pieces.",
+      "First, attach the backrest between the tops of the two tall legs.",
+      "Second, attach the mid-height rail between the same tall legs, above seat height.",
+      "Third, attach the seat-height rail between the two short legs.",
+      "After that, the seat attaches onto the closed rim at seat height."
+    ];
+
+    let idx = 0;
+    let isPlayingSequence = false;
+    const list = document.getElementById("list");
+    const rateSlider = document.getElementById("rate");
+    const rateLabel = document.getElementById("rateLabel");
+
+    function highlight(i) {
+      [...document.querySelectorAll(".sent")].forEach((b, k) => {
+        b.classList.toggle("active", k === i);
+      });
+    }
+
+    function speakOne(i) {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(sentences[i]);
+      u.rate = parseFloat(rateSlider.value);
+      u.onend = () => {
+        if (isPlayingSequence && i < sentences.length - 1) {
+          idx = i + 1;
+          highlight(idx);
+          speakOne(idx);
+        } else {
+          isPlayingSequence = false;
+        }
+      };
+      highlight(i);
+      window.speechSynthesis.speak(u);
+    }
+
+    function stopAll() {
+      isPlayingSequence = false;
+      window.speechSynthesis.cancel();
+    }
+
+    // Build sentence buttons
+    sentences.forEach((s, i) => {
+      const b = document.createElement("button");
+      b.className = "sent";
+      b.textContent = (i + 1) + ". " + s;
+      b.onclick = () => { idx = i; isPlayingSequence = false; speakOne(i); };
+      list.appendChild(b);
+    });
+    highlight(idx);
+
+    document.getElementById("play").onclick = () => { isPlayingSequence = true; speakOne(idx); };
+    document.getElementById("prev").onclick = () => { idx = Math.max(0, idx - 1); isPlayingSequence = false; speakOne(idx); };
+    document.getElementById("next").onclick = () => { idx = Math.min(sentences.length - 1, idx + 1); isPlayingSequence = false; speakOne(idx); };
+    document.getElementById("stop").onclick = stopAll;
+
+    rateSlider.oninput = () => { rateLabel.textContent = rateSlider.value; };
+
+    // Keyboard shortcuts: space=play/stop, arrows=prev/next
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") { e.preventDefault(); isPlayingSequence ? stopAll() : (isPlayingSequence=true, speakOne(idx)); }
+      if (e.code === "ArrowLeft") { e.preventDefault(); idx=Math.max(0, idx-1); isPlayingSequence=false; speakOne(idx); }
+      if (e.code === "ArrowRight") { e.preventDefault(); idx=Math.min(sentences.length-1, idx+1); isPlayingSequence=false; speakOne(idx); }
+    });
+  </script>
+</body>
+</html>
