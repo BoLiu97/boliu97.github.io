@@ -35,14 +35,18 @@
     window.__chairPlayerLoaded = true;
 
     const sentences = [
-      "You are building a dining chair without armrests.",
-      "The build starts with two identical side frames.",
-      "Each side frame has a tall leg and a short leg, and two fixed rails between them.",
-      "Now connect the two side frames with three cross pieces.",
-      "First, attach the backrest between the tops of the two tall legs.",
-      "Second, attach the mid-height rail between the same tall legs, above seat height.",
-      "Third, attach the seat-height rail between the two short legs.",
-      "After that, the seat attaches onto the closed rim at seat height."
+    "You are building a dining chair without armrests.",
+    "The structure starts with two matching side frames.",
+    "Each side frame has two legs that both touch the floor.",
+    "One leg extends well above seat height. This is the tall leg that supports the backrest.",
+    "The other leg ends around seat height. This is the short leg.",
+    "In each side frame, the tall leg and short leg are already joined by two fixed rails. One rail sits at seat height, and the other sits much lower, closer to the floor.",
+    "Next, connect the two side frames using three cross pieces that run from one side to the other.",
+    "First, attach the backrest between the two tall legs at their highest attachment points. It fixes the spacing at the top.",
+    "Second, attach a mid-height back rail between those same two tall legs. It sits above seat height and below the backrest.",
+    "Third, attach a front seat rail between the two short legs at seat height.",
+    "After these pieces are installed, the parts at seat height form one closed loop.",
+    "This closed loop is what the seat panel rests on, so it should feel level and not twisted."
     ];
 
     let idx = 0;
@@ -127,7 +131,8 @@
       const b = document.createElement("button");
       b.className = "sent";
       b.type = "button";
-      b.textContent = (i + 1) + ". " + s;
+      b.textContent = "Sentence " + (i + 1);
+      b.setAttribute("aria-label", "Play sentence " + (i + 1));
       b.addEventListener("click", () => speakOne(i));
       list.appendChild(b);
     });
