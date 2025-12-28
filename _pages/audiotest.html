@@ -43,64 +43,108 @@ permalink: /chair-audio/
       "Third, attach the seat-height rail between the two short legs.",
       "After that, the seat attaches onto the closed rim at seat height."
     ];
-
+  
     let idx = 0;
-    let isPlayingSequence = false;
+    let voices = [];
+    const synth = window.speechSynthesis;
+  
+    // --- UI refs
     const list = document.getElementById("list");
     const rateSlider = document.getElementById("rate");
     const rateLabel = document.getElementById("rateLabel");
-
+  
     function highlight(i) {
       [...document.querySelectorAll(".sent")].forEach((b, k) => {
         b.classList.toggle("active", k === i);
       });
     }
-
+  
+    function ensureSpeechSupported() {
+      if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+        alert("Text-to-speech isn't supported in this browser. Try Chrome, Edge, or Safari.");
+        return false;
+      }
+      return true;
+    }
+  
+    function loadVoices() {
+      try {
+        voices = synth.getVoices() || [];
+      } catch (e) {
+        voices = [];
+      }
+    }
+    loadVoices();
+    if ("onvoiceschanged" in synth) synth.onvoiceschanged = loadVoices;
+  
+    function stopAll() {
+      synth.cancel();
+    }
+  
+    // Speak a single sentence (user clicks a sentence / prev / next)
     function speakOne(i) {
-      window.speechSynthesis.cancel();
+      if (!ensureSpeechSupported()) return;
+      stopAll();
+  
       const u = new SpeechSynthesisUtterance(sentences[i]);
       u.rate = parseFloat(rateSlider.value);
-      u.onend = () => {
-        if (isPlayingSequence && i < sentences.length - 1) {
-          idx = i + 1;
-          highlight(idx);
-          speakOne(idx);
-        } else {
-          isPlayingSequence = false;
-        }
-      };
-      highlight(i);
-      window.speechSynthesis.speak(u);
+  
+      // pick a stable voice if available
+      loadVoices();
+      if (voices.length) u.voice = voices[0];
+  
+      u.onstart = () => highlight(i);
+      synth.speak(u);
     }
-
-    function stopAll() {
-      isPlayingSequence = false;
-      window.speechSynthesis.cancel();
+  
+    // Queue-play from current idx to end (more compatible than chaining onend)
+    function playFrom(i) {
+      if (!ensureSpeechSupported()) return;
+      stopAll();
+      loadVoices();
+  
+      for (let k = i; k < sentences.length; k++) {
+        const u = new SpeechSynthesisUtterance(sentences[k]);
+        u.rate = parseFloat(rateSlider.value);
+        if (voices.length) u.voice = voices[0];
+        u.onstart = (() => {
+          const kk = k;
+          return () => { idx = kk; highlight(kk); };
+        })();
+        synth.speak(u);
+      }
     }
-
+  
     // Build sentence buttons
     sentences.forEach((s, i) => {
       const b = document.createElement("button");
       b.className = "sent";
       b.textContent = (i + 1) + ". " + s;
-      b.onclick = () => { idx = i; isPlayingSequence = false; speakOne(i); };
+      b.onclick = () => { idx = i; speakOne(i); };
       list.appendChild(b);
     });
     highlight(idx);
-
-    document.getElementById("play").onclick = () => { isPlayingSequence = true; speakOne(idx); };
-    document.getElementById("prev").onclick = () => { idx = Math.max(0, idx - 1); isPlayingSequence = false; speakOne(idx); };
-    document.getElementById("next").onclick = () => { idx = Math.min(sentences.length - 1, idx + 1); isPlayingSequence = false; speakOne(idx); };
+  
+    // Hook up controls (expects these IDs exist)
+    document.getElementById("play").onclick = () => playFrom(idx);
+    document.getElementById("prev").onclick = () => { idx = Math.max(0, idx - 1); speakOne(idx); };
+    document.getElementById("next").onclick = () => { idx = Math.min(sentences.length - 1, idx + 1); speakOne(idx); };
     document.getElementById("stop").onclick = stopAll;
-
+  
+    // Optional: add a “Test Voice” unlock button if you want:
+    // Put <button id="test">Test Voice</button> in your HTML controls row.
+    const testBtn = document.getElementById("test");
+    if (testBtn) testBtn.onclick = () => speakOne(idx);
+  
     rateSlider.oninput = () => { rateLabel.textContent = rateSlider.value; };
-
-    // Keyboard shortcuts: space=play/stop, arrows=prev/next
+  
+    // Helpful keyboard shortcuts
     document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") { e.preventDefault(); isPlayingSequence ? stopAll() : (isPlayingSequence=true, speakOne(idx)); }
-      if (e.code === "ArrowLeft") { e.preventDefault(); idx=Math.max(0, idx-1); isPlayingSequence=false; speakOne(idx); }
-      if (e.code === "ArrowRight") { e.preventDefault(); idx=Math.min(sentences.length-1, idx+1); isPlayingSequence=false; speakOne(idx); }
+      if (e.code === "Space") { e.preventDefault(); playFrom(idx); }
+      if (e.code === "ArrowLeft") { e.preventDefault(); idx=Math.max(0, idx-1); speakOne(idx); }
+      if (e.code === "ArrowRight") { e.preventDefault(); idx=Math.min(sentences.length-1, idx+1); speakOne(idx); }
     });
   </script>
+  
 </body>
 </html>
