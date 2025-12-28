@@ -3,148 +3,139 @@ layout: single
 title: "Chair Audio Player"
 permalink: /chair-audio/
 ---
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chair Script Player</title>
-  <style>
-    body { font-family: system-ui, sans-serif; margin: 18px; line-height: 1.35; }
-    .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom: 12px; }
-    button { padding: 10px 12px; font-size: 16px; }
-    .sent { width: 100%; text-align: left; margin: 6px 0; }
-    .active { outline: 3px solid #000; }
-    input[type="range"] { width: 220px; }
-  </style>
-</head>
-<body>
-  <h2>Script Player</h2>
 
-  <div class="row">
-    <button id="prev">Prev</button>
-    <button id="play">Play</button>
-    <button id="next">Next</button>
-    <button id="stop">Stop</button>
-    <label>Speed: <span id="rateLabel">1.0</span></label>
-    <input id="rate" type="range" min="0.6" max="1.6" value="1.0" step="0.05" />
-  </div>
+<style>
+  .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin: 12px 0; }
+  button { padding: 10px 12px; font-size: 16px; }
+  .sent { width: 100%; text-align: left; margin: 6px 0; }
+  .active { outline: 3px solid #000; }
+  input[type="range"] { width: 220px; }
+  #status { margin: 10px 0; }
+</style>
 
-  <div id="list"></div>
+<h2>Script Player</h2>
 
-  <script>
-    const sentences = [
-      "You are building a dining chair without armrests.",
-      "The build starts with two identical side frames.",
-      "Each side frame has a tall leg and a short leg, and two fixed rails between them.",
-      "Now connect the two side frames with three cross pieces.",
-      "First, attach the backrest between the tops of the two tall legs.",
-      "Second, attach the mid-height rail between the same tall legs, above seat height.",
-      "Third, attach the seat-height rail between the two short legs.",
-      "After that, the seat attaches onto the closed rim at seat height."
-    ];
-  
-    let idx = 0;
-    let voices = [];
-    const synth = window.speechSynthesis;
-  
-    // --- UI refs
-    const list = document.getElementById("list");
-    const rateSlider = document.getElementById("rate");
-    const rateLabel = document.getElementById("rateLabel");
-  
-    function highlight(i) {
-      [...document.querySelectorAll(".sent")].forEach((b, k) => {
-        b.classList.toggle("active", k === i);
-      });
+<div class="row">
+  <button id="test">Test Voice</button>
+  <button id="prev">Prev</button>
+  <button id="play">Play</button>
+  <button id="next">Next</button>
+  <button id="stop">Stop</button>
+  <label>Speed: <span id="rateLabel">1.0</span></label>
+  <input id="rate" type="range" min="0.6" max="1.6" value="1.0" step="0.05" />
+</div>
+
+<div id="status" aria-live="polite"></div>
+<div id="list"></div>
+
+<script>
+  const sentences = [
+    "You are building a dining chair without armrests.",
+    "The build starts with two identical side frames.",
+    "Each side frame has a tall leg and a short leg, and two fixed rails between them.",
+    "Now connect the two side frames with three cross pieces.",
+    "First, attach the backrest between the tops of the two tall legs.",
+    "Second, attach the mid-height rail between the same tall legs, above seat height.",
+    "Third, attach the seat-height rail between the two short legs.",
+    "After that, the seat attaches onto the closed rim at seat height."
+  ];
+
+  let idx = 0;
+  const synth = window.speechSynthesis;
+  let voices = [];
+
+  const list = document.getElementById("list");
+  const rateSlider = document.getElementById("rate");
+  const rateLabel = document.getElementById("rateLabel");
+  const statusEl = document.getElementById("status");
+
+  function setStatus(msg) { statusEl.textContent = msg; }
+
+  function ensureSpeechSupported() {
+    if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+      setStatus("This browser doesn't support text-to-speech. Try Chrome, Edge, or Safari.");
+      return false;
     }
-  
-    function ensureSpeechSupported() {
-      if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
-        alert("Text-to-speech isn't supported in this browser. Try Chrome, Edge, or Safari.");
-        return false;
-      }
-      return true;
-    }
-  
-    function loadVoices() {
-      try {
-        voices = synth.getVoices() || [];
-      } catch (e) {
-        voices = [];
-      }
-    }
+    return true;
+  }
+
+  function loadVoices() {
+    try { voices = synth.getVoices() || []; } catch(e) { voices = []; }
+  }
+  loadVoices();
+  if ("onvoiceschanged" in synth) synth.onvoiceschanged = () => loadVoices();
+
+  function highlight(i) {
+    [...document.querySelectorAll(".sent")].forEach((b, k) => b.classList.toggle("active", k === i));
+  }
+
+  function stopAll() {
+    try { synth.cancel(); } catch(e) {}
+    setStatus("Stopped.");
+  }
+
+  // Speak one sentence reliably
+  function speakOne(i) {
+    if (!ensureSpeechSupported()) return;
+
+    // Cancel + resume fixes “no sound” on Chrome/Safari sometimes
+    try { synth.cancel(); } catch(e) {}
+    try { synth.resume(); } catch(e) {}
+
+    const u = new SpeechSynthesisUtterance(sentences[i]);
+    u.rate = parseFloat(rateSlider.value);
+
     loadVoices();
-    if ("onvoiceschanged" in synth) synth.onvoiceschanged = loadVoices;
-  
-    function stopAll() {
-      synth.cancel();
-    }
-  
-    // Speak a single sentence (user clicks a sentence / prev / next)
-    function speakOne(i) {
-      if (!ensureSpeechSupported()) return;
-      stopAll();
-  
-      const u = new SpeechSynthesisUtterance(sentences[i]);
-      u.rate = parseFloat(rateSlider.value);
-  
-      // pick a stable voice if available
-      loadVoices();
-      if (voices.length) u.voice = voices[0];
-  
-      u.onstart = () => highlight(i);
-      synth.speak(u);
-    }
-  
-    // Queue-play from current idx to end (more compatible than chaining onend)
-    function playFrom(i) {
-      if (!ensureSpeechSupported()) return;
-      stopAll();
-      loadVoices();
-  
-      for (let k = i; k < sentences.length; k++) {
-        const u = new SpeechSynthesisUtterance(sentences[k]);
-        u.rate = parseFloat(rateSlider.value);
-        if (voices.length) u.voice = voices[0];
-        u.onstart = (() => {
-          const kk = k;
-          return () => { idx = kk; highlight(kk); };
-        })();
-        synth.speak(u);
-      }
-    }
-  
-    // Build sentence buttons
-    sentences.forEach((s, i) => {
-      const b = document.createElement("button");
-      b.className = "sent";
-      b.textContent = (i + 1) + ". " + s;
-      b.onclick = () => { idx = i; speakOne(i); };
-      list.appendChild(b);
-    });
-    highlight(idx);
-  
-    // Hook up controls (expects these IDs exist)
-    document.getElementById("play").onclick = () => playFrom(idx);
-    document.getElementById("prev").onclick = () => { idx = Math.max(0, idx - 1); speakOne(idx); };
-    document.getElementById("next").onclick = () => { idx = Math.min(sentences.length - 1, idx + 1); speakOne(idx); };
-    document.getElementById("stop").onclick = stopAll;
-  
-    // Optional: add a “Test Voice” unlock button if you want:
-    // Put <button id="test">Test Voice</button> in your HTML controls row.
-    const testBtn = document.getElementById("test");
-    if (testBtn) testBtn.onclick = () => speakOne(idx);
-  
-    rateSlider.oninput = () => { rateLabel.textContent = rateSlider.value; };
-  
-    // Helpful keyboard shortcuts
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") { e.preventDefault(); playFrom(idx); }
-      if (e.code === "ArrowLeft") { e.preventDefault(); idx=Math.max(0, idx-1); speakOne(idx); }
-      if (e.code === "ArrowRight") { e.preventDefault(); idx=Math.min(sentences.length-1, idx+1); speakOne(idx); }
-    });
-  </script>
-  
-</body>
-</html>
+    if (voices.length) u.voice = voices[0];
+
+    u.onstart = () => { idx = i; highlight(i); setStatus("Speaking: " + (i+1)); };
+    u.onerror = (e) => setStatus("TTS error: " + (e.error || "unknown"));
+
+    // Tiny delay avoids “cancel then speak does nothing”
+    setTimeout(() => synth.speak(u), 60);
+  }
+
+  // Play sequence using onend (more reliable than queueing a loop)
+  let playing = false;
+  function playFrom(i) {
+    if (!ensureSpeechSupported()) return;
+    playing = true;
+
+    const u = new SpeechSynthesisUtterance(sentences[i]);
+    u.rate = parseFloat(rateSlider.value);
+
+    loadVoices();
+    if (voices.length) u.voice = voices[0];
+
+    u.onstart = () => { idx = i; highlight(i); setStatus("Playing: " + (i+1) + "/" + sentences.length); };
+    u.onerror = (e) => { playing = false; setStatus("TTS error: " + (e.error || "unknown")); };
+    u.onend = () => {
+      if (!playing) return;
+      if (i < sentences.length - 1) playFrom(i + 1);
+      else { playing = false; setStatus("Done."); }
+    };
+
+    try { synth.cancel(); } catch(e) {}
+    try { synth.resume(); } catch(e) {}
+    setTimeout(() => synth.speak(u), 60);
+  }
+
+  // Build sentence buttons
+  sentences.forEach((s, i) => {
+    const b = document.createElement("button");
+    b.className = "sent";
+    b.textContent = (i + 1) + ". " + s;
+    b.onclick = () => { playing = false; speakOne(i); };
+    list.appendChild(b);
+  });
+  highlight(idx);
+  setStatus("Ready. Click “Test Voice” first if your browser is picky.");
+
+  document.getElementById("test").onclick = () => { playing = false; speakOne(idx); };
+  document.getElementById("play").onclick = () => playFrom(idx);
+  document.getElementById("prev").onclick = () => { playing = false; idx = Math.max(0, idx - 1); speakOne(idx); };
+  document.getElementById("next").onclick = () => { playing = false; idx = Math.min(sentences.length - 1, idx + 1); speakOne(idx); };
+  document.getElementById("stop").onclick = () => { playing = false; stopAll(); };
+
+  rateSlider.oninput = () => { rateLabel.textContent = rateSlider.value; };
+</script>
