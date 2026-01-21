@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chair Audio Player</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 18px; line-height: 1.35; }
+    .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin: 12px 0; }
+    button { padding: 10px 12px; font-size: 16px; }
+    .sent { width: 100%; text-align: left; margin: 6px 0; }
+    .active { outline: 3px solid #000; }
+    input[type="range"] { width: 220px; }
+    #status { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h2>Script Player</h2>
+
+  <div class="row">
+    <button id="test" type="button">Test Voice</button>
+    <button id="prev" type="button">Prev</button>
+    <button id="play" type="button">Play</button>
+    <button id="next" type="button">Next</button>
+    <button id="stop" type="button">Stop</button>
+
+    <label>Speed: <span id="rateLabel">1.0</span></label>
+    <input id="rate" type="range" min="0.6" max="1.6" value="1.0" step="0.05" />
+  </div>
+
+  <div id="status" aria-live="polite"></div>
+  <div id="list"></div>
+
+  <script>
+    window.__chairPlayerLoaded = true;
+
+    const sentences = [
+        "You are building a rectangular table with four round legs.",
+        "The table has no drawers and no lower shelf.",
+        "Start with the tabletop, which is one flat panel that is already made.",
+        "Under the tabletop, you create a rigid rectangle called the underframe.",
+        "The underframe is made by joining four metal rails into one closed loop.",
+        "This underframe sits against the underside of the tabletop, near the tabletop edges.",
+        "It helps spread weight toward the four corners of the tabletop.",
+        "Each end of a rail has a rectangular opening.",
+        "A corner block is the connector that slides into these openings to lock each corner of the underframe.",
+        "Fasten the underframe to the tabletop using the tabletop screws.",
+        "Place one round leg at each corner, outside the underframe.",
+        "Tighten the leg bolt through the corner block’s round hole to clamp the leg in place."
+    ];
+
+    let idx = 0;
+    let playing = false;
+    const synth = window.speechSynthesis;
+    let voices = [];
+
+    const list = document.getElementById("list");
+    const rateSlider = document.getElementById("rate");
+    const rateLabel = document.getElementById("rateLabel");
+    const statusEl = document.getElementById("status");
+
+    function setStatus(msg) { statusEl.textContent = msg; }
+
+    function ensureSpeechSupported() {
+      if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+        setStatus("Text-to-speech not supported here. Try Chrome, Edge, or Safari.");
+        return false;
+      }
+      return true;
+    }
+
+    function loadVoices() {
+      try { voices = synth.getVoices() || []; } catch (e) { voices = []; }
+    }
+    loadVoices();
+    if ("onvoiceschanged" in synth) synth.onvoiceschanged = loadVoices;
+
+    function highlight(i) {
+      [...document.querySelectorAll(".sent")].forEach((b, k) => {
+        b.classList.toggle("active", k === i);
+      });
+    }
+
+    function stopAll() {
+      playing = false;
+      try { synth.cancel(); } catch (e) {}
+      setStatus("Stopped.");
+    }
+
+    function speakText(text, i, onend) {
+      if (!ensureSpeechSupported()) return;
+
+      // Chrome sometimes needs resume; cancel+delay avoids silent no-op
+      try { synth.cancel(); } catch (e) {}
+      try { synth.resume(); } catch (e) {}
+
+      loadVoices();
+      const u = new SpeechSynthesisUtterance(text);
+      u.rate = parseFloat(rateSlider.value);
+      if (voices.length) u.voice = voices[0];
+
+      u.onstart = () => {
+        if (typeof i === "number") { idx = i; highlight(i); }
+        setStatus("Speaking" + (typeof i === "number" ? ` ${i+1}/${sentences.length}` : ""));
+      };
+      u.onerror = (e) => { playing = false; setStatus("TTS error: " + (e.error || "unknown")); };
+      if (onend) u.onend = onend;
+
+      setTimeout(() => {
+        try { synth.resume(); } catch (e) {}
+        synth.speak(u);
+      }, 80);
+    }
+
+    function speakOne(i) {
+      playing = false;
+      speakText(sentences[i], i);
+    }
+
+    function playFrom(i) {
+      playing = true;
+      speakText(sentences[i], i, () => {
+        if (!playing) return;
+        if (i < sentences.length - 1) playFrom(i + 1);
+        else { playing = false; setStatus("Done."); }
+      });
+    }
+
+    // Build sentence buttons
+    sentences.forEach((s, i) => {
+      const b = document.createElement("button");
+      b.className = "sent";
+      b.type = "button";
+      b.textContent = "Sentence " + (i + 1);
+      b.setAttribute("aria-label", "Play sentence " + (i + 1));
+      b.addEventListener("click", () => speakOne(i));
+      list.appendChild(b);
+    });
+    highlight(idx);
+    setStatus("Ready. Click Test Voice.");
+
+    document.getElementById("test").addEventListener("click", () => speakOne(idx));
+    document.getElementById("play").addEventListener("click", () => playFrom(idx));
+    document.getElementById("prev").addEventListener("click", () => { idx = Math.max(0, idx - 1); speakOne(idx); });
+    document.getElementById("next").addEventListener("click", () => { idx = Math.min(sentences.length - 1, idx + 1); speakOne(idx); });
+    document.getElementById("stop").addEventListener("click", stopAll);
+
+    rateSlider.addEventListener("input", () => { rateLabel.textContent = rateSlider.value; });
+
+    // Space to play, Esc to stop
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") { e.preventDefault(); playFrom(idx); }
+      if (e.code === "Escape") { e.preventDefault(); stopAll(); }
+    });
+  </script>
+</body>
+</html>
