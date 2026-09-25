@@ -8,6 +8,20 @@ excerpt: "Selected publications by Bo Liu in human-computer interaction, sensing
 
 Selected publications. You can also find my work on [Google Scholar](https://scholar.google.com/citations?user=3k5VL7gAAAAJ&hl=en).
 
+## 2026
+
+### Comparing Fabrication Workflows in CAD to Support Design Reasoning
+
+Shuo Feng, Xuening Wang, Yifan Shan, Krista U. Singh, **Bo Liu**, Amritansh Kwatra, Ritik Batra, Tobias M. Weinberg, and Thijs Roumen.
+*CHI 2026 — Conference paper.*
+[Paper](https://doi.org/10.1145/3772318.3790516) · [Project](https://matteroftechlab.org/projects/2026-shuo-cameleon/cameleon.html)
+
+### Demonstrating Comparing Fabrication Workflows in CAD to Support Design Reasoning
+
+Shuo Feng, Xuening Wang, Yifan Shan, Krista U. Singh, **Bo Liu**, Amritansh Kwatra, Ritik Batra, Tobias M. Weinberg, and Thijs Roumen.
+*CHI 2026 Extended Abstracts — Demo.*
+[Paper](https://doi.org/10.1145/3772363.3799157) · [Project](https://matteroftechlab.org/projects/2026-shuo-cameleon/cameleon.html)
+
 ## 2025
 
 ### Assembly Stethoscope: Detecting Assembly Errors through Frequency Sweeping – A Feasibility Study
