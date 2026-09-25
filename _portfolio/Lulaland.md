@@ -5,20 +5,15 @@ header:
     image: Lula_front.png
     teaser: Lula_teaser.png
 collection: portfolio
+project_id: lullaland
 
 sidebar:
-  - title: "People"
-    image: 
-    image_alt: "logo"
-    text: "Bo Liu(first author), Steve Wang, Yuqing Zhang, John Raiti"
   - title: "Location"
     text: "University of Washington"
-  - title: "Responsibilities"
-    text: "Circuit Design, Prototype Iteration, VR Development Full Stack"
 
 ---
 
-**Updates**: This research has been accepted by CHI 2023 as Late-Breaking Work
+{% include project-publications.html %}
 
 
 People associate the hospital with things they deem stressful and scary. **When they are in healthcare settings, patients have emotional reactions like anxiety, aggression, and anger mainly because they lack control of their environment.** These emotional responses can increase not only pain sensitivity but also delay important medical treatment, lower efficiency, and also undermine patients’ willingness to continue their healthcare treatment.

@@ -1,0 +1,28 @@
+- date: Apr 2026
+  lead: "Published:"
+  publication_ids: [cameleon-2026, cameleon-demo-2026]
+- date: Oct 2025
+  lead: "Accepted:"
+  publication_ids: [yar-2025, beyond-beautiful-2025]
+- date: Sep 2025
+  lead: "Accepted:"
+  publication_ids: [assembly-stethoscope-2025]
+- date: Aug 2025
+  lead: "Accepted:"
+  publication_ids: [coplay-2025, flowring-2025]
+- date: Apr 2023
+  text: "I will be joining Cornell Tech as a PhD student."
+- date: Feb 2023
+  lead: "Accepted:"
+  publication_ids: [lullaland-2023]
+- date: Jan 2023
+  lead: "Accepted:"
+  publication_ids: [smartrecorder-2023]
+- date: Nov 2022
+  text: "Presented SoundShirt at the UW Annual Research Showcase poster session."
+  url: /portfolio/SoundShirt/
+- date: Nov 2022
+  text: "Attended UIST 2022."
+- date: Sep 2022
+  text: "Submitted Microbiome to CHI 2023 as first author."
+  url: /portfolio/microbiome/

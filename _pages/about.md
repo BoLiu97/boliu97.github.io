@@ -16,16 +16,16 @@ Before pursuing my PhD, I earned a master's degree in [Technology Innovation](ht
 
 My research has been focused on wearable devices, sensing, and healthcare. I am interested in how sensing technologies can guide physical assembly processes.
 
-------
+<p class="home-research-link"><a href="{{ '/research/' | relative_url }}">Explore selected research →</a> · <a href="{{ '/publications/' | relative_url }}">Publications</a></p>
+
 ## News & Updates
-+ Oct 2025, [Y-AR](https://arxiv.org/abs/2410.23540) accepted by SCF 25, [Beyond Beautiful](https://dl.acm.org/doi/10.1145/3663547.3746336) accepted by ASSETS 25.
-+ Sep 2025, [Assembly Stethoscope](https://dl.acm.org/doi/abs/10.1145/3737901.3768368) has been accepted by MobiCom as a workshop paper.
-+ Aug 2025, [Co-Play](https://ieeexplore.ieee.org/abstract/document/11134003) accepted by ICCCN 25, [FlowRing](https://dl.acm.org/doi/full/10.1145/3743706) accepted by MobileHCI 2025.
-+ Apr 2023, I will be joining Cornell Tech as a PhD student.
-+ Feb 2023, [Lullaland](/portfolio/Lulaland/) has been accepted by CHI 2023 as a late breaking work.
-+ Jan 2023, [Smart Recorder](/portfolio/SmartRecorder/) has been accepted by IUI2023 as a full paper.
-+ Nov 2022, I present [SoundShirt](/portfolio/SoundShirt/) at [UW 2022 Annual Research Showcase](https://www.cs.washington.edu/industrial_affiliates/meetings/2022) poster session.
-+ Nov 2022, I attended UIST 2022.
-+ Sep 2022, I submitted [Microbiome](/portfolio/microbiome/) to CHI2023 as the first author.
 
-
+<ul class="news-list">
+{% for item in site.data.news limit:3 %}{% include news-item.html item=item %}{% endfor %}
+</ul>
+<details class="news-earlier">
+  <summary>Earlier updates</summary>
+  <ul class="news-list">
+  {% for item in site.data.news offset:3 %}{% include news-item.html item=item %}{% endfor %}
+  </ul>
+</details>

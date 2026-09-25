@@ -1,0 +1,154 @@
+---
+- id: cameleon-2026
+  project_id: cameleon
+  title: Comparing Fabrication Workflows in CAD to Support Design Reasoning
+  short_title: CAMeleon
+  authors:
+  - Shuo Feng
+  - Xuening Wang
+  - Yifan Shan
+  - Krista U. Singh
+  - Bo Liu
+  - Amritansh Kwatra
+  - Ritik Batra
+  - Tobias M. Weinberg
+  - Thijs Roumen
+  year: 2026
+  venue: CHI
+  type: Conference paper
+  doi: 10.1145/3772318.3790516
+- id: cameleon-demo-2026
+  project_id: cameleon
+  title: Demonstrating Comparing Fabrication Workflows in CAD to Support Design Reasoning
+  short_title: CAMeleon demo
+  authors:
+  - Shuo Feng
+  - Xuening Wang
+  - Yifan Shan
+  - Krista U. Singh
+  - Bo Liu
+  - Amritansh Kwatra
+  - Ritik Batra
+  - Tobias M. Weinberg
+  - Thijs Roumen
+  year: 2026
+  venue: CHI Extended Abstracts
+  type: Demo
+  doi: 10.1145/3772363.3799157
+- id: assembly-stethoscope-2025
+  project_id: assembly-stethoscope
+  title: 'Assembly Stethoscope: Detecting Assembly Errors through Frequency Sweeping
+    – A Feasibility Study'
+  short_title: Assembly Stethoscope
+  authors:
+  - Bo Liu
+  - Yixuan Gao
+  - Yin Li
+  - Rajalakshmi Nandakumar
+  - Thijs Roumen
+  year: 2025
+  venue: IASA / MobiCom Workshop
+  type: Workshop paper
+  doi: 10.1145/3737901.3768368
+- id: yar-2025
+  project_id: yar
+  title: 'Y-AR: A Mixed Reality CAD Tool for 3D Wire Bending'
+  short_title: Y-AR
+  authors:
+  - Shuo Feng
+  - Bo Liu
+  - Yifan Shan
+  - Roy Zunder
+  - Wei-Che Lin
+  - Tri Dinh
+  - Harald Haraldsson
+  - Ofer Berman
+  - Thijs Roumen
+  year: 2025
+  venue: SCF
+  type: Conference paper
+  doi: 10.1145/3745778.3766654
+  preprint: https://arxiv.org/abs/2410.23540
+- id: coplay-2025
+  project_id: coplay
+  title: 'CoPlay: Audio-agnostic Cognitive Scaling for Acoustic Sensing'
+  short_title: CoPlay
+  authors:
+  - Yin Li
+  - Bo Liu
+  - Rajalakshmi Nandakumar
+  year: 2025
+  venue: ICCCN
+  type: Conference paper
+  doi: 10.1109/ICCCN65249.2025.11134003
+- id: beyond-beautiful-2025
+  project_id: beyond-beautiful
+  title: 'Beyond Beautiful: Embroidering Legible and Expressive Tactile Graphics'
+  short_title: Beyond Beautiful
+  authors:
+  - Margaret Ellen Seehorn
+  - Claris Winston
+  - Bo Liu
+  - Gene S-H Kim
+  - Emily White
+  - Nupur Gorkar
+  - Kate S Glazko
+  - Aashaka Desai
+  - Jerry Cao
+  - Megan Hofmann
+  - Jennifer Mankoff
+  year: 2025
+  venue: ASSETS
+  type: Conference paper
+  doi: 10.1145/3663547.3746336
+- id: flowring-2025
+  project_id: flowring
+  title: 'FlowRing: Integrated Microgesture and Surface Interaction Ring for Versatile
+    XR Input'
+  short_title: FlowRing
+  authors:
+  - Ishan Chatterjee
+  - Jiexin Ding
+  - Anandghan Waghmare
+  - Joseph Breda
+  - Yuquan Deng
+  - Bo Liu
+  - Yuntao Wang
+  - Shwetak Patel
+  year: 2025
+  venue: MobileHCI / PACM HCI
+  type: Journal article
+  doi: 10.1145/3743706
+- id: lullaland-2023
+  project_id: lullaland
+  title: 'Lullaland: A Multisensory Virtual Reality Experience to Reduce Stress'
+  short_title: Lullaland
+  authors:
+  - Bo Liu
+  - Wenyu Wang
+  - Yuqing Zhang
+  - Rui Huang
+  - John Raiti
+  year: 2023
+  venue: CHI Extended Abstracts
+  type: Late-Breaking Work
+  doi: 10.1145/3544549.3585636
+- id: smartrecorder-2023
+  project_id: smartrecorder
+  title: 'SmartRecorder: An IMU-based Video Tutorial Creation by Demonstration System
+    for Smartphone Interaction Tasks'
+  short_title: SmartRecorder
+  authors:
+  - Xiaozhu Hu
+  - Yanwen Huang
+  - Bo Liu
+  - Ruolan Wu
+  - Yongquan Hu
+  - Aaron Quigley
+  - Mingming Fan
+  - Chun Yu
+  - Yuanchun Shi
+  year: 2023
+  venue: IUI
+  type: Conference paper
+  doi: 10.1145/3581641.3584069

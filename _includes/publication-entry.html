@@ -1,0 +1,12 @@
+{% assign publication = include.publication %}
+{% assign project = site.data.projects | where: 'id', publication.project_id | first %}
+<article class="publication-entry" id="{{ publication.id }}">
+  <h3><a href="https://doi.org/{{ publication.doi }}">{{ publication.title | escape }}</a></h3>
+  <p class="publication-entry__authors">{% include publication-authors.html publication=publication %}</p>
+  <p class="publication-entry__venue">{{ publication.venue | escape }} {{ publication.year }} <span aria-hidden="true">·</span> {{ publication.type | escape }}</p>
+  <div class="research-links">
+    <a href="https://doi.org/{{ publication.doi }}" aria-label="Read {{ publication.title | escape }}">Paper <span aria-hidden="true">↗</span></a>
+    {% if publication.preprint %}<a href="{{ publication.preprint }}">Preprint <span aria-hidden="true">↗</span></a>{% endif %}
+    {% if project.url %}<a href="{{ project.url | relative_url }}">Project <span aria-hidden="true">↗</span></a>{% endif %}
+  </div>
+</article>

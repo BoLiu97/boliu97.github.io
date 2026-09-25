@@ -1,0 +1,11 @@
+<li class="news-item">
+  <span class="news-item__date">{{ include.item.date }}</span>
+  <div>
+    {% if include.item.publication_ids %}
+      {% capture linked_papers %}{% for id in include.item.publication_ids %}{% assign publication = site.data.publications | where: 'id', id | first %}<a href="https://doi.org/{{ publication.doi }}">{{ publication.short_title | escape }}</a> <span class="news-item__venue">({{ publication.venue | escape }} {{ publication.year }}{% if publication.type == 'Demo' %}, demo{% endif %})</span>{% unless forloop.last %}; {% endunless %}{% endfor %}{% endcapture %}
+      {{ include.item.lead | escape }} {{ linked_papers | strip }}.
+    {% else %}
+      {% if include.item.url %}<a href="{{ include.item.url | relative_url }}">{{ include.item.text | escape }}</a>{% else %}{{ include.item.text | escape }}{% endif %}
+    {% endif %}
+  </div>
+</li>

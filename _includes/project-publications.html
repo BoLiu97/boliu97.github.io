@@ -1,0 +1,4 @@
+{% assign project = site.data.projects | where: 'id', page.project_id | first %}
+{% assign papers = site.data.publications | where: 'project_id', page.project_id %}
+{% if project.contribution %}<p><strong>My contribution:</strong> {{ project.contribution | escape }}</p>{% endif %}
+{% for paper in papers %}{% include publication-entry.html publication=paper %}{% endfor %}

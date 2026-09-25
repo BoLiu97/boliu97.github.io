@@ -6,21 +6,16 @@ header:
     image: SmartRecorder_Front.png
     teaser: SmartRecorder_teaser.png
 collection: portfolio
+project_id: smartrecorder
 
 sidebar:
-  - title: "People"
-    image: 
-    image_alt: "logo"
-    text: "XiaoZhu Hu, Yanwen Huang, Bo Liu, Chun Yu"
   - title: "Location"
     text: "Pervasive HCI Lab, Tsinghua University (THU)"
-  - title: "Responsibilities"
-    text: "Mobile App Development, User Interface Design"
 
 ---
 
 
-**Updates**: Paper has been accepted by IUI 2023 as a full paper
+{% include project-publications.html %}
 
 
 

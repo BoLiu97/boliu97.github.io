@@ -1,0 +1,23 @@
+{% assign project = include.project %}
+{% assign papers = site.data.publications | where: 'project_id', project.id %}
+{% assign main_paper = papers | first %}
+{% assign first_author = main_paper.authors | first %}
+{% assign project_link = project.url %}
+{% unless project_link %}{% capture project_link %}https://doi.org/{{ main_paper.doi }}{% endcapture %}{% endunless %}
+<article class="research-card" id="{{ project.id }}">
+  <a class="research-card__image" href="{{ project_link | relative_url }}" aria-label="Explore {{ project.name | escape }}">
+    <img src="{{ project.image | relative_url }}" alt="{{ project.image_alt | escape }}" width="640" height="400" loading="lazy" decoding="async">
+  </a>
+  <div class="research-card__body">
+    <p class="research-card__topic">{{ project.topic | escape }}</p>
+    <h2><a href="{{ project_link | relative_url }}">{{ project.name | escape }}</a></h2>
+    <p class="research-card__venue">{{ main_paper.venue | escape }} {{ main_paper.year }} <span aria-hidden="true">·</span> {% if first_author == site.author.name %}First author{% else %}Co-author{% endif %}</p>
+    <p class="research-card__summary">{{ project.summary | escape }}</p>
+    {% if project.contribution %}<p class="research-card__contribution"><strong>My contribution:</strong> {{ project.contribution | escape }}</p>{% endif %}
+    <div class="research-links">
+      {% for paper in papers %}<a href="https://doi.org/{{ paper.doi }}" aria-label="Read {{ paper.title | escape }}">{% if paper.type == 'Demo' %}Demo paper{% else %}Paper{% endif %} <span aria-hidden="true">↗</span></a>{% endfor %}
+      {% if project.url %}<a href="{{ project.url | relative_url }}">Project <span aria-hidden="true">↗</span></a>{% endif %}
+      {% if project.video %}<a href="{{ project.video | relative_url }}">Video <span aria-hidden="true">↗</span></a>{% endif %}
+    </div>
+  </div>
+</article>

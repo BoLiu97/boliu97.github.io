@@ -1,0 +1,67 @@
+- id: assembly-stethoscope
+  name: Assembly Stethoscope
+  featured: true
+  topic: Acoustic sensing · Assembly
+  image: /images/research/assembly-stethoscope.webp
+  image_alt: Assembly Stethoscope research prototype
+  summary: "Exploring whether frequency sweeps can reveal assembly errors. This feasibility study investigates acoustic sensing as a way to support physical assembly."
+
+- id: cameleon
+  name: CAMeleon
+  featured: true
+  topic: Design tools · Digital fabrication
+  image: /images/research/cameleon.webp
+  image_alt: CAMeleon interface comparing fabrication workflows for a 3D model
+  summary: "A CAD interface for comparing fabrication workflows side by side. It helps designers explore alternatives and reason about trade-offs before committing to a way of making."
+  url: https://matteroftechlab.org/projects/2026-shuo-cameleon/cameleon.html
+  video: https://www.youtube.com/watch?v=M247AZIjbdI
+
+- id: yar
+  name: Y-AR
+  featured: true
+  topic: Mixed reality · Digital fabrication
+  image: /images/research/yar.webp
+  image_alt: Y-AR mixed reality interface for designing bent wire structures
+  summary: "A mixed reality CAD tool for designing 3D wire structures around physical objects. Spring-based design elements help accommodate differences between the virtual model and the fabricated result."
+  url: https://matteroftechlab.org/projects/2024-shuo-y-ar/yar.html
+  video: https://www.youtube.com/watch?v=N6NLhezjP6w
+
+- id: flowring
+  name: FlowRing
+  featured: true
+  topic: Wearable sensing · XR interaction
+  image: /images/research/flowring.webp
+  image_alt: FlowRing wearable ring and examples of gesture and surface interaction
+  summary: "A wearable ring that combines microgestures and surface interaction for XR input. The work explores how a compact device can support interaction across different settings."
+  url: https://djx06.github.io/portfolio/portfolio-2-flowring/
+  video: https://www.youtube.com/watch?v=mz0XIEK4Cz4
+
+- id: beyond-beautiful
+  name: Beyond Beautiful
+  featured: true
+  topic: Accessibility · Fabrication
+  image: /images/research/beyond-beautiful.webp
+  image_alt: Examples of embroidered tactile graphics
+  summary: "Exploring machine embroidery as a way to create tactile graphics. The work studies how embroidered designs can communicate information through touch while supporting visual expression."
+  url: https://make4all.org/portfolio/embroidering-tactile-graphics/
+
+- id: lullaland
+  name: Lullaland
+  featured: true
+  topic: Multisensory interaction · VR
+  image: /images/research/lullaland.webp
+  image_alt: Lullaland VR headset and wearable scent delivery device
+  summary: "A multisensory VR experience that combines virtual environments with a wearable scent device. The project explores this combination as an approach to stress reduction."
+  contribution: Circuit design, prototype iteration, and full-stack VR development.
+  url: /portfolio/Lulaland/
+  video: /files/Video/Lullaland_demo.mp4
+
+- id: smartrecorder
+  name: SmartRecorder
+  featured: false
+  contribution: Mobile app development and user interface design.
+  url: /portfolio/SmartRecorder/
+
+- id: coplay
+  name: CoPlay
+  featured: false
