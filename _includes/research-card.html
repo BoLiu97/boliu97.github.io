@@ -15,7 +15,7 @@
     <p class="research-card__summary">{{ project.summary | escape }}</p>
     {% if project.contribution %}<p class="research-card__contribution"><strong>My contribution:</strong> {{ project.contribution | escape }}</p>{% endif %}
     <div class="research-links">
-      {% for paper in papers %}<a href="https://doi.org/{{ paper.doi }}" aria-label="Read {{ paper.title | escape }}">{% if paper.type == 'Demo' %}Demo paper{% else %}Paper{% endif %} <span aria-hidden="true">↗</span></a>{% endfor %}
+      {% for paper in papers %}{% unless paper.show_on_project == false %}<a href="https://doi.org/{{ paper.doi }}" aria-label="Read {{ paper.title | escape }}">{% if paper.type == 'Demo' %}Demo paper{% else %}Paper{% endif %} <span aria-hidden="true">↗</span></a>{% endunless %}{% endfor %}
       {% if project.url %}<a href="{{ project.url | relative_url }}">Project <span aria-hidden="true">↗</span></a>{% endif %}
       {% if project.video %}<a href="{{ project.video | relative_url }}">Video <span aria-hidden="true">↗</span></a>{% endif %}
     </div>

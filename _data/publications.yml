@@ -35,6 +35,7 @@
   venue: CHI Extended Abstracts
   type: Demo
   doi: 10.1145/3772363.3799157
+  show_on_project: false
 - id: assembly-stethoscope-2025
   project_id: assembly-stethoscope
   title: 'Assembly Stethoscope: Detecting Assembly Errors through Frequency Sweeping

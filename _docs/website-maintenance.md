@@ -23,7 +23,7 @@
 
 `id` 必须唯一；`project_id` 与 projects.yml 中的项目对应。`authors` 按正式论文排序。模板自动加粗 Bo Liu，并根据作者顺序显示 First author 或 Co-author；它不会推测具体个人贡献。
 
-同一项目的主论文、demo 使用相同 `project_id`，但各自有独立论文 `id` 和 DOI。它们在 Publications 分别列出，在 Research 共用一张卡片。`type: Demo` 会显示为 Demo paper 链接。可选 `preprint` 用于预印本网址。
+同一项目的主论文、demo 使用相同 `project_id`，但各自有独立论文 `id` 和 DOI。它们在 Publications 分别列出，在 Research 共用一张卡片。`type: Demo` 会显示为 Demo paper 链接。可选 `preprint` 用于预印本网址。 设置 `show_on_project: false` 可隐藏该论文在 Research 项目卡片中的链接，Publications 和 News 中的记录不受影响。
 
 ## 2. 新增或更换精选项目
 
