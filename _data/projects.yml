@@ -33,7 +33,6 @@
   image: /images/research/flowring.webp
   image_alt: FlowRing wearable ring and examples of gesture and surface interaction
   summary: "A wearable ring that combines microgestures and surface interaction for XR input. The work explores how a compact device can support interaction across different settings."
-  url: https://djx06.github.io/portfolio/portfolio-2-flowring/
   video: https://www.youtube.com/watch?v=mz0XIEK4Cz4
 
 - id: beyond-beautiful
