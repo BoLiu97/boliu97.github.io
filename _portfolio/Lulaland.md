@@ -26,7 +26,7 @@ People associate the hospital with things they deem stressful and scary. **When 
 People associate the hospital with things they deem stressful and scary. When they are in healthcare settings, patients have emotional reactions like anxiety, aggression, and anger mainly because they lack control of their environment. These emotional responses can increase not only pain sensitivity but also delay important medical treatment, lower efficiency, and also undermine patients’ willingness to continue their healthcare treatment.
 
 <video width="80%" height=auto controls>
-  <source type="video/mp4" src="https://boliu97.github.io/files/Video/Lullaland_demo.mp4">
+  <source type="video/mp4" src="/files/Video/Lullaland_demo.mp4">
 </video>
 
 ## Interview & Suvery
@@ -46,7 +46,7 @@ The hospital environment, unknown therapies and the smell of the hospital are th
 
 Hardware Design           |      Circuit Design
 :-------------------------:|:-------------------------:
-![](http://boliu97.github.io/images/Lula_HardSch.webp)  |  ![](http://boliu97.github.io/images/Lula_3D.webp)
+![](/images/Lula_HardSch.webp)  |  ![](/images/Lula_3D.webp)
 
 *   Control the on/off of 2 fans to provide with different aroma intensity
 *   Contain four isolated sections for different fragrance oil pods

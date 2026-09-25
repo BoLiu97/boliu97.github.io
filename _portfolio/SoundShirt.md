@@ -39,12 +39,12 @@ Why is this better than previous approaches
 
 Embroidered Speaker            |      Prototype
 :-------------------------:|:-------------------------:
-![](http://boliu97.github.io/images/Speaker_1.jpg)  |  ![](http://boliu97.github.io/images/Speaker_2.jpg)
+![](/images/Speaker_1.jpg)  |  ![](/images/Speaker_2.jpg)
 
  In this project, I experimented with many materials for making embroidered speakers (threads, clothing materials, and coil size). Anandghan and I also designed several circuits for speakers and microphones. Since we are still working on the project, I cannot show much detail on the website. Chat with me about the project!
 
 
-|![](http://boliu97.github.io/images/SoundShirt-demo.gif)|
+|![](/images/SoundShirt-demo.gif)|
 |:--:| 
 | *First prototype - Machine learning predicting result* |
 
